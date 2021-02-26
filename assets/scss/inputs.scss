@@ -1,0 +1,113 @@
+@import "./root.scss";
+
+.container {
+  position: relative;
+  width: $inputWidthSmall;
+  height: $inputHeightSmall;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  .label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    border-style: solid;
+    border-right: none !important;
+    padding: 0 $spacingMedium;
+    width: 30%;
+    max-width: 30%;
+    min-width: max-content;
+    height: 100%;
+  }
+
+  .input {
+    border: none;
+    border-left: none !important;
+    border-style: solid;
+    width: 70%;
+    height: 100%;
+    padding: 0 $spacing2xSmall;
+    font-size: $fontSizeMedium;
+  }
+
+  &:hover {
+    .tooltip {
+      display: inline;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      z-index: 1;
+      font-size: $fontSizeSmall;
+      padding: $spacing2xSmall;
+      transform: translate(20%, 105%);
+    }
+  }
+}
+
+:host([width-size="md"]) {
+  .container {
+    width: $inputWidthMedium;
+  }
+}
+
+:host([width-size="lg"]) {
+  .container {
+    width: $inputWidthLarge;
+  }
+}
+
+:host([height-size="md"]) {
+  .container {
+    height: $inputHeightMedium;
+
+    .input {
+      font-size: $fontSizeLarge;
+    }
+  }
+}
+
+:host([height-size="lg"]) {
+  .container {
+    height: $inputHeightLarge;
+
+    .input {
+      font-size: $fontSize1xLarge;
+    }
+  }
+}
+
+:host([rounded]) {
+  .container {
+    border-radius: $borderRadiusPill !important;
+
+    .label {
+      border-bottom-left-radius: $borderRadiusPill !important;
+      border-top-left-radius: $borderRadiusPill !important;
+    }
+
+    .input {
+      border-top-right-radius: $borderRadiusPill !important;
+      border-bottom-right-radius: $borderRadiusPill !important;
+    }
+  }
+}
+
+:host([type="date"])::-webkit-calendar-picker-indicator,
+:host([type="datetime-local"])::-webkit-calendar-picker-indicator,
+:host([type="time"])::-webkit-calendar-picker-indicator,
+:host([type="week"])::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+:host([type="number"])::-webkit-inner-spin-button {
+  display: block;
+  opacity: 1;
+}
+
+// Hidden Tooltip
+.tooltip {
+  display: none;
+  opacity: 0.98;
+  max-width: 100px;
+}

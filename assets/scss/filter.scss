@@ -1,0 +1,55 @@
+@import "./root.scss";
+
+.container {
+    width: $inputWidthSmall;
+    height: $inputHeightMedium;
+    border: 2px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: $borderRadiusLarge;
+
+    &:focus-within {
+        border-color: rgb(18, 124, 211);
+    }
+
+    .input {
+        width: 50%;
+        height: $inputHeightSmall;
+        border: none;
+        outline: none;
+        padding-inline: 7px;
+        border-right: 1px solid black;
+
+        &:focus {
+            border-color: rgb(18, 124, 211);
+        }
+    }
+
+    .match-text {
+        display: inline;
+        padding-inline: 7px;
+        // min-width: 2rem;
+        // height: $inputHeightSmall;
+    }
+
+    .icon {
+        width: 1.6rem;
+        height: $inputHeightSmall;
+        cursor: pointer;
+    }
+}
+
+.up-search {
+    content: url("../assets/images/chevron-up.svg");
+}
+
+.down-search {
+    content: url("../assets/images/chevron-up.svg");
+    transform: rotate(180deg);
+}
+
+.close {
+    content: url("../assets/images/close.svg");
+    padding-right: 7px;
+}

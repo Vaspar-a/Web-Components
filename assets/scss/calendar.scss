@@ -1,0 +1,209 @@
+@import "./root.scss";
+
+.calendar {
+  position: relative;
+  margin: 0 auto;
+  width: $inputWidthSmall - 4.5;
+  height: 247px;
+  background-color: #ffffff;
+  box-shadow: $shadow1xLarge;
+
+  .month {
+    width: 100%;
+    height: 1.5rem;
+    background-color: #167e56;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 $spacing1xSmall;
+    text-align: center;
+
+    i {
+      font-size: $fontSize1xLarge;
+      cursor: pointer;
+    }
+
+    .prev {
+      content: url("../assets/images/chevron.svg");
+      user-select: none;
+    }
+
+    .select-container {
+      width: 8.1rem;
+      height: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .next {
+      content: url("../assets/images/chevron.svg");
+      transform: rotate(180deg);
+      user-select: none;
+    }
+
+    h1 {
+      font-size: $fontSizeMedium;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+    }
+
+    p {
+      font-size: $fontSizeSmall;
+    }
+  }
+
+  .weekdays {
+    width: 100%;
+    margin: 0 auto;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    div {
+      width: ($inputWidthSmall - 4.5) / 7;
+      height: $inputHeightSmall - 0.2;
+      color: #002719;
+    }
+
+    .day {
+      font-size: $fontSize1xSmall - 0.05;
+      font-weight: 400;
+      height: max-content;
+      cursor: default;
+      user-select: none;
+    }
+
+    .date {
+      font-size: $fontSize2xSmall;
+      font-weight: 200;
+      line-height: $inputHeightSmall;
+      user-select: none;
+
+      &:hover:not(.today) {
+        background-color: #9ae7ca;
+        cursor: pointer;
+      }
+    }
+
+    .prev-date,
+    .next-date {
+      opacity: 0.5;
+    }
+
+    .today {
+      background-color: #167e56;
+      color: #ffffff;
+    }
+  }
+
+  .today-btn {
+    position: absolute;
+    bottom: $spacing3xSmall;
+    right: $spacing3xSmall;
+    user-select: none;
+
+    &::part(button) {
+      font-weight: 200;
+
+      &:hover {
+        background-color: #d1ece2a1;
+      }
+
+      &:active {
+        padding: $spacing1xSmall $spacingSmall;
+        border: none;
+      }
+    }
+  }
+}
+
+vpr-select::part(select) {
+  display: inline-block;
+  position: relative;
+  border: none;
+  border-radius: 0px;
+  border-bottom: 2px solid #287155;
+  height: 1.5rem;
+}
+
+vpr-select::part(select):focus-within {
+  border: none;
+  border-bottom: 2px solid #287155 !important;
+}
+
+.month-select::part(select) {
+  width: 5.8rem;
+}
+
+.month-select::part(para) {
+  text-align: center;
+}
+
+.year-select::part(select) {
+  width: 2.8rem;
+}
+
+.year-select::part(para) {
+  text-align: left;
+}
+
+vpr-select::part(options) {
+  overflow-x: hidden;
+}
+
+vpr-select::part(option) {
+  font-size: $fontSize1xSmall - 0.05;
+  text-align: center;
+}
+
+vpr-select::part(para) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding-top: 7px;
+  font-size: $fontSize1xSmall - 0.05;
+  color: #ffffff;
+  font-size: $fontSizeSmall;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 100%;
+  vertical-align: none;
+}
+
+vpr-select::part(img) {
+  width: 7px;
+  height: 9px;
+  position: absolute;
+  bottom: 0;
+  right: 3px;
+}
+
+.year-select::part(img) {
+  right: -2px;
+}
+
+.disable {
+  cursor: not-allowed !important;
+
+  &:hover {
+    background-color: #21312b88 !important;
+  }
+
+  // &:active {
+  //   pointer-events: none;
+  // }
+}
+
+:host {
+  display: inline-block;
+}
+
+

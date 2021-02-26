@@ -1,0 +1,195 @@
+@import "./root.scss";
+
+.container {
+  width: $inputWidthSmall;
+  height: max-content;
+  display: flex;
+  align-items: baseline;
+  justify-content: start;
+  flex-direction: column;
+
+  .input-container {
+    position: relative;
+    width: 100%;
+    height: max-content;
+
+    .input {
+      border-style: solid;
+      width: 100%;
+      height: $inputHeightSmall;
+      padding: 0 $spacing2xSmall;
+      font-size: $fontSizeMedium;
+
+      &:focus {
+        border: 2px solid rgb(18, 124, 211) !important;
+      }
+    }
+
+    &:hover {
+      .tooltip {
+        display: inline;
+      }
+    }
+
+    .img {
+      display: none;
+      user-select: none;
+      width: 25px;
+      height: $inputHeightSmall;
+      position: absolute;
+      top: 0;
+      right: 5px;
+    }
+  }
+}
+
+:host([width-size="md"]) {
+  .container {
+    width: $inputWidthMedium;
+  }
+}
+
+:host([width-size="lg"]) {
+  .container {
+    width: $inputWidthLarge;
+  }
+}
+
+:host([height-size="md"]) {
+  .container {
+    // height: $inputHeightMedium;
+
+    .input {
+      height: $inputHeightMedium;
+      font-size: $fontSizeLarge;
+    }
+
+    .img {
+      width: 30px;
+      height: $inputHeightMedium;
+    }
+  }
+}
+
+:host([height-size="lg"]) {
+  .container {
+    // height: $inputHeightLarge;
+
+    .input {
+      height: $inputHeightLarge;
+      font-size: $fontSize1xLarge;
+    }
+
+    .img {
+      width: 40px;
+      height: $inputHeightLarge;
+    }
+  }
+}
+
+:host([rounded]) {
+  .container {
+    border-radius: $borderRadiusPill !important;
+
+    .input {
+      border-radius: $borderRadiusPill !important;
+      padding-left: 1rem;
+    }
+  }
+}
+
+:host([type="number"])::-webkit-inner-spin-button {
+  display: block;
+  opacity: 1;
+}
+
+// Hidden Tooltip
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  opacity: 0.98;
+  max-width: $inputWidthMedium;
+  font-size: $fontSizeSmall;
+  padding: $spacing2xSmall;
+  transform: translate(80%, 105%);
+}
+
+.detail {
+  display: inline-block;
+  font-size: $fontSizeSmall;
+  max-width: $inputWidthLarge;
+}
+
+.error {
+  display: none;
+  font-size: $fontSizeSmall;
+  max-width: $inputWidthLarge;
+}
+
+:host([type="search"]) {
+  .img {
+    display: block;
+    content: url("../assets/images/search.svg");
+  }
+}
+
+:host([type="time"]) {
+  .img {
+    display: block;
+    content: url("../assets/images/clock.svg");
+  }
+}
+
+:host([type="date"]) {
+  .img {
+    display: block;
+    content: url("../assets/images/calendar.svg");
+  }
+}
+
+:host([type="password"]) {
+  .img {
+    display: block;
+    content: url("../assets/images/lock.svg");
+  }
+}
+
+:host([type="password"][eye]) {
+  .img {
+    display: block;
+    content: url("../assets/images/eye-outline.svg");
+  }
+}
+
+:host([type="password"][strict]) {
+  .img {
+    display: none;
+  }
+}
+
+.input::-ms-clear,
+.input::-ms-reveal {
+  display: none;
+}
+
+:host {
+  display: inline-block;
+}
+
+.calendar, .time {
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  transform: translate(0%, 101%);
+  z-index: 5;
+  transition: opacity, transform 0.35s ease-out;
+}
+
+.hide {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(0%, -100%);
+}

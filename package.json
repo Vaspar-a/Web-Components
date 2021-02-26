@@ -1,0 +1,19 @@
+{
+  "name": "web-components",
+  "version": "1.0.0",
+  "description": "Custom web components",
+  "main": "button.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack --watch --config webpack.config.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^5.0.0",
+    "raw-loader": "^4.0.2",
+    "sass-loader": "^10.0.5",
+    "webpack": "^5.3.2",
+    "webpack-cli": "^4.1.0"
+  }
+}

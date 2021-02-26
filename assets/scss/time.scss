@@ -1,0 +1,94 @@
+@import "./root.scss";
+
+.time {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: rgb(38, 103, 243);
+  width: 18rem;
+  height: max-content;
+
+  .hours-panel,
+  .minutes-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 5rem;
+    height: 7rem;
+
+    .up {
+      width: 1.8rem;
+      height: 1.8rem;
+      content: url("../assets/images/chevron.svg");
+      transform: rotate(90deg);
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .down {
+      width: 1.8rem;
+      height: 1.8rem;
+      content: url("../assets/images/chevron.svg");
+      transform: rotate(-90deg);
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .time-input {
+      background-color: rgb(38, 103, 243);
+      color: white;
+      border: none;
+      outline: none;
+      width: $inputHeightMedium;
+      height: 3.5rem;
+      font-size: $fontSize2xLarge;
+      text-align: center;
+    }
+  }
+  
+  .am-pm {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 7rem;
+    height: 7rem;
+
+    .am,
+    .pm {
+      color: white;
+      font-size: $fontSize1xLarge;
+      user-select: none;
+      cursor: pointer;
+    }
+  }
+
+  .colon {
+    color: white;
+    font-size: $fontSize2xLarge;
+    user-select: none;
+    cursor: default;
+  }
+}
+
+.lower-opacity {
+  filter: opacity(80%);
+}
+
+:host([hr-24]) {
+  .time {
+    width: 10rem;
+  }
+
+  .am-pm {
+    display: none;
+  }
+}
+
+*:focus {
+  outline: none;
+}
+
+:host {
+  display: inline-block;
+}

@@ -1,0 +1,149 @@
+@import "./root";
+
+// Normal button
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  padding: $spacing1xSmall $spacingSmall;
+  border-radius: $borderRadiusSmall;
+  text-align: center;
+  border: none;
+  outline: none;
+  cursor: pointer;
+
+  // .btn
+  &:hover {
+    .tooltip {
+      display: inline;
+      position: absolute;
+      bottom: 0%;
+      right: 0%;
+      z-index: 1;
+      transform: translate(80%, 110%);
+    }
+    // filter: opacity(90%);
+  }
+
+  // .btn
+  &:focus {
+    border: 2px solid rgb(0, 6, 61);
+    // padding: $spacingSmall/3;
+  }
+}
+
+// Small button
+:host([size="sm"]) {
+  .btn {
+    padding: $spacing1xSmall $spacingMedium;
+  }
+}
+
+// Medium button
+:host([size="md"]) {
+  .btn {
+    padding: $spacing1xSmall $spacing2xLarge;
+  }
+}
+
+// Large Button
+:host([size="lg"]) {
+  .btn {
+    padding: $spacing1xSmall $spacing4xLarge;
+  }
+}
+
+// Disabled normal button
+:host([disabled]) {
+  // Button when disabled
+  .btn {
+    cursor: not-allowed;
+    filter: opacity(70%);
+
+    // .btn
+    &:hover {
+      filter: opacity(70%);
+    }
+
+    // .btn
+    &:focus {
+      border: none;
+    }
+  }
+}
+
+
+// Image on Left
+:host([img-pos="left"]) {
+  .img {
+    order: 1;
+    margin: 0 $spacing2xSmall;
+  }
+  .text {
+    order: 2;
+  }
+}
+
+// Image on Top
+:host([img-pos="top"]) {
+  .btn {
+    flex-direction: column;
+  }
+  .img {
+    order: 1;
+    margin: $spacing2xSmall 0;
+  }
+  .text {
+    order: 2;
+  }
+}
+
+// Image on Bottom
+:host([img-pos="bottom"]) {
+  .btn {
+    flex-direction: column-reverse;
+  }
+  .img {
+    order: 1;
+    margin: $spacing2xSmall 0;
+  }
+  .text {
+    order: 2;
+  }
+}
+
+// If image is not set
+.img {
+  width: 0px;
+  height: 0px;
+}
+
+// Set image on right (Default)
+.img-on-right {
+  margin: 0 $spacing2xSmall;
+}
+
+// Hidden Tooltip
+.tooltip {
+  display: none;
+  opacity: 0.98;
+  max-width: 100px;
+  max-width: $inputWidthMedium;
+  font-size: $fontSizeSmall;
+  padding: $spacing2xSmall;
+}
+
+.rounded-border {
+  border-radius: $borderRadiusPill;
+}
+
+*:focus {
+  outline: none;
+}
+
+:host {
+  display: inline-block;
+}

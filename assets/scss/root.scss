@@ -1,0 +1,66 @@
+$inputHeightSmall: 1.875rem;
+$inputHeightMedium: 2.5rem;
+$inputHeightLarge: 3.125rem;
+$inputWidthSmall: 18rem;
+$inputWidthMedium: 27rem;
+$inputWidthLarge: 36rem;
+$fontSize2xSmall: 0.625rem;
+$fontSize1xSmall: 0.75rem;
+$fontSizeSmall: 0.875rem;
+$fontSizeMedium: 1rem;
+$fontSizeLarge: 1.25rem;
+$fontSize1xLarge: 1.5rem;
+$fontSize2xLarge: 2.25rem;
+$fontSize3xLarge: 3rem;
+$fontSize4xLarge: 4.5rem;
+$fontWeightLight: 300;
+$fontWeightNormal: 400;
+$fontWeightSemibold: 500;
+$fontWeightBold: 700;
+$letterSpacingDense: -0.015em;
+$letterSpacingNormal: normal;
+$letterSpacingLoose: 0.075em;
+$lineHeightDense: 1.4;
+$lineHeightNormal: 1.8;
+$lineHeightLoose: 2.2;
+$borderRadiusSmall: 0.125rem;
+$borderRadiusMedium: 0.25rem;
+$borderRadiusLarge: 0.5rem;
+$borderRadiusXLarge: 1rem;
+$borderRadiusCircle: 50%;
+$borderRadiusPill: 9999px;
+$shadow1xSmall: 0 1px 0 rgba(0, 0, 0, 0.05);
+$shadowSmall: 0 1px 2px rgba(0, 0, 0, 0.4);
+$shadowMedium: 0 2px 4px rgba(0, 0, 0, 0.4);
+$shadowLarge: 0 2px 8px rgba(0, 0, 0, 0.4);
+$shadow1xLarge: 0 4px 16px rgba(0, 0, 0, 0.4);
+$spacing3xSmall: 0.125rem;
+$spacing2xSmall: 0.25rem;
+$spacing1xSmall: 0.5rem;
+$spacingSmall: 0.75rem;
+$spacingMedium: 1rem;
+$spacingLarge: 1.25rem;
+$spacing1xLarge: 1.75rem;
+$spacing2xLarge: 2.25rem;
+$spacing3xLarge: 3rem;
+$spacing4xLarge: 4.5rem;
+$transitionXSlow: 1000ms;
+$transitionSlow: 500ms;
+$transitionMedium: 250ms;
+$transitionFast: 150ms;
+$transitionXFast: 50ms;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.highlight {
+  background-color: rgba(137, 228, 228, 0.527) !important;
+}

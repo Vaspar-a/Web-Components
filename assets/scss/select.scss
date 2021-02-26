@@ -1,0 +1,200 @@
+@import "./root.scss";
+
+.select {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  width: $inputWidthSmall / 3;
+  height: $inputHeightSmall;
+  line-height: $inputHeightSmall;
+  border: 2px solid black;
+  border-radius: $borderRadiusLarge;
+  color: black;
+  cursor: default;
+  transition: transform, overflow-y 0.5s linear;
+
+  &:hover {
+    .tooltip {
+      display: inline;
+    }
+  }
+
+  &:focus-within {
+    border: 2px solid rgb(18, 124, 211);
+  }
+
+  .para {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    vertical-align: middle;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    color: black;
+    overflow-x: scroll;
+    width: 80%;
+    height: 100%;
+    padding: 0 $spacing3xSmall;
+    scrollbar-width: none;
+    cursor: pointer;
+    font-size: $fontSizeSmall - 0.05;
+
+    &::-webkit-scrollbar {
+      width: 0px;
+      height: 0px;
+    }
+  }
+
+  .img {
+    content: url("../assets/images/arrow-down.svg");
+    // position: absolute;
+    width: 17px;
+    height: 100%;
+    // right: 5px;
+    // bottom: 0;
+    transition: transform 0.3s ease;
+    user-select: none;
+  }
+
+  .options-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(103%);
+    opacity: 0;
+    box-shadow: $shadowMedium;
+    pointer-events: none;
+    overflow: hidden;
+    height: max-content;
+    width: 100%;
+
+    .options {
+      width: 100%;
+      height: $inputHeightLarge * 2;
+      color: black;
+      transition: transform 0.5s ease;
+      transform: translateY(-150%);
+      display: flex;
+      overflow-y: auto;
+      flex-direction: column;
+      align-items: center;
+      scrollbar-width: thin;
+      scrollbar-color: #888 #f1f1f1;
+
+      &::-webkit-scrollbar {
+        width: 3px;
+        height: 2px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: #888;
+      }
+
+      &::-webkit-scrollbar-thumb:hover {
+        background-color: #555;
+      }
+
+      .option {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: $inputHeightSmall;
+        line-height: 2;
+        padding-left: $spacing2xSmall;
+        font-size: $fontSizeSmall - 0.05;
+
+        &:hover,
+        &:focus {
+          background-color: rgba(75, 129, 245, 0.534);
+        }
+      }
+    }
+  }
+}
+
+.disable-pointer-events {
+  opacity: 1 !important;
+  pointer-events: all !important;
+  background-color: white;
+  z-index: 2;
+}
+
+.arrow-rotate {
+  transform: rotate(180deg);
+}
+
+.show {
+  transform: translateY(0%) !important;
+}
+
+:host([width-size="md"]) {
+  .select {
+    width: $inputWidthMedium / 3;
+  }
+}
+
+:host([width-size="lg"]) {
+  .select {
+    width: $inputWidthLarge / 3;
+  }
+}
+
+:host([height-size="md"]) {
+  .select {
+    height: $inputHeightMedium;
+
+    .para,
+    .option {
+      font-size: $fontSizeLarge;
+    }
+
+    .img {
+      width: 20px;
+    }
+  }
+}
+
+:host([height-size="lg"]) {
+  .select {
+    height: $inputHeightLarge;
+
+    .para,
+    .option {
+      font-size: $fontSize1xLarge;
+    }
+
+    .img {
+      width: 23px;
+    }
+  }
+}
+
+// Hidden Tooltip
+.tooltip {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+  opacity: 0.98;
+  max-width: $inputWidthMedium;
+  font-size: $fontSizeSmall;
+  padding: $spacing2xSmall;
+  transform: translate(80%, 110%);
+}
+
+.detail {
+  display: inline-block;
+  font-size: $fontSizeSmall;
+  max-width: $inputWidthLarge;
+}
+
+:host {
+  display: inline-block;
+}
