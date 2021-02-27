@@ -1,0 +1,71 @@
+@import "./root.scss";
+
+.container {
+  width: 23rem;
+  height: 3.4rem;
+  border: 2px solid black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  border-radius: $borderRadiusLarge;
+  padding-block: 2px;
+
+  .inputs {
+    width: 23rem;
+    height: $inputHeightMedium;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .input {
+      width: 5rem;
+      height: $inputHeightSmall;
+      border: none;
+      outline: none;
+      padding-inline: 2px;
+    }
+
+    .header-options::part(select),
+    .match-options::part(select) {
+      border: none;
+    }
+
+    .match-options::part(select):focus-within,
+    .header-options::part(select):focus-within {
+      border-color: black;
+    }
+
+    .icon {
+      width: 1.6rem;
+      height: $inputHeightSmall;
+      cursor: pointer;
+    }
+  }
+
+  .labels {
+    width: 23rem;
+    height: $inputHeightMedium;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .column,
+    .operator {
+      width: $inputWidthSmall / 3;
+    }
+
+    .key {
+      width: 5rem;
+      padding-inline: 2px;
+    }
+
+    .pad {
+      width: 1.6rem;
+    }
+  }
+
+  .search {
+    content: url("../assets/images/search.svg");
+  }
+}

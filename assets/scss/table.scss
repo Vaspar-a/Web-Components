@@ -123,7 +123,7 @@
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 5;
+  z-index: 4;
   min-width: $inputWidthSmall / 2 + 3;
   max-width: $inputWidthSmall / 2 + 3;
   height: 36.8px;
@@ -158,27 +158,29 @@
   .filter-container {
     float: right;
     overflow-x: hidden;
-    width: 20rem;
+    width: 23rem;
     height: max-content;
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 2px;
-    
-    .filter-icon {
-      width: 25px;
-      height: 25px;
-      float: right;
-      content: url("../assets/images/filter.svg");
-      cursor: pointer;
-    }
-
-    .filter-bar {
-      transition: opacity, transform 0.35s ease-out;
-      transform: translateX(200%);
-      opacity: 0;
-    }
   }
+}
+
+.filter-icon {
+  width: 25px;
+  height: 25px;
+  float: right;
+  content: url("../assets/images/filter.svg");
+  cursor: pointer;
+}
+
+.filter-bar {
+  float: right;
+  margin-bottom: 2px;
+  // transition: opacity, transform 0.35s ease-out;
+  // transform: translateX(200%);
+  // opacity: 0;
 }
 
 .show-filter {

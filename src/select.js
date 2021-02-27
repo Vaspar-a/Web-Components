@@ -319,6 +319,10 @@ class Select extends HTMLElement {
   get selectedOption() {
     return this.para.value;
   }
+
+  get selectedOptionIndex() {
+    return this.optionsList.indexOf(this.para.value);
+  }
 }
 
 window.customElements.get("vpr-select") || window.customElements.define("vpr-select", Select);
