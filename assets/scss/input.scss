@@ -7,6 +7,7 @@
   align-items: baseline;
   justify-content: start;
   flex-direction: column;
+  border-radius: 0.5rem;
 
   .input-container {
     position: relative;
@@ -14,11 +15,14 @@
     height: max-content;
 
     .input {
-      border-style: solid;
       width: 100%;
       height: $inputHeightSmall;
       padding: 0 $spacing2xSmall;
       font-size: $fontSizeMedium;
+      background-color: rgba(255, 255, 255, 0);
+      color: black;
+      border: 2px solid rgba(0, 0, 0, 0.7);
+      border-radius: 0.5rem;
 
       &:focus {
         border: 2px solid rgb(18, 124, 211) !important;
@@ -106,27 +110,43 @@
 // Hidden Tooltip
 .tooltip {
   display: none;
+  width: max-content;
+  max-width: $inputWidthMedium;
+  height: max-content;
+  padding: 0;
   position: absolute;
   bottom: 0;
   right: 0;
   z-index: 1;
   opacity: 0.98;
-  max-width: $inputWidthMedium;
   font-size: $fontSizeSmall;
-  padding: $spacing2xSmall;
+  background-color: black;
+  color: white;
   transform: translate(80%, 105%);
 }
 
 .detail {
-  display: inline-block;
-  font-size: $fontSizeSmall;
+  display: none;
+  width: max-content;
   max-width: $inputWidthLarge;
+  height: max-content;
+  padding-top: 0.125rem;
+  padding-left: 0.16rem;
+  color: #858587;
+  background-color: white;
+  font-size: $fontSizeSmall;
 }
 
 .error {
   display: none;
-  font-size: $fontSizeSmall;
+  width: max-content;
   max-width: $inputWidthLarge;
+  height: max-content;
+  padding-top: 0.125rem;
+  padding-left: 0.16rem;
+  color: red;
+  background-color: white;
+  font-size: $fontSizeSmall;
 }
 
 :host([type="search"]) {

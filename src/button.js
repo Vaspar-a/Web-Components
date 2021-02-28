@@ -34,13 +34,12 @@ class Button extends HTMLElement {
   render() {
     this.onTextChange();
     this.onTooltipChange();
-    this.onBackgroundChnage();
+    this.onBackgroundChange();
     this.onColorChange();
     this.onImgChange();
     this.onBorderColorChange();
     this.onBorderWidthChange();
     this.onBorderRadiusChange();
-    this.onRoundedBorder();
     this.rendered = true;
   }
 
@@ -58,7 +57,6 @@ class Button extends HTMLElement {
       "border-color",
       "border-width",
       "border-radius",
-      "rounded",
     ];
   }
 
@@ -73,7 +71,7 @@ class Button extends HTMLElement {
           this.onTooltipChange();
           break;
         case "bg-color":
-          this.onBackgroundChnage();
+          this.onBackgroundChange();
           break;
         case "color":
           this.onColorChange();
@@ -90,9 +88,6 @@ class Button extends HTMLElement {
         case "border-radius":
           this.onBorderRadiusChange();
           break;
-        case "rounded":
-          this.onRoundedBorder();
-          break;
       }
     }
   }
@@ -106,39 +101,30 @@ class Button extends HTMLElement {
   onTooltipChange() {
     const tooltipText = this.getAttribute("tooltip");
     if (this.getAttribute("tooltip") !== null && tooltipText.trim() !== "") {
-      this.tooltip.textContent = this.getAttribute("tooltip");
-      this.tooltip.style.width = "max-content";
-      this.tooltip.style.height = "max-content";
-      this.tooltip.style.padding = "0.25rem";
-      this.tooltip.style.color =
-        this.getAttribute("tooltip-color") !== null
-          ? this.getAttribute("tooltip-color")
-          : "white";
-      this.tooltip.style.backgroundColor =
-        this.getAttribute("tooltip-bg-color") !== null
-          ? this.getAttribute("tooltip-bg-color")
-          : "black";
-    } else {
-      this.tooltip.style.width = "0px";
-      this.tooltip.style.height = "0px";
-      this.tooltip.style.padding = "0px";
-    }
+      this.tooltip.textContent = tooltipText;
+      this.tooltip.style.padding = '0.25rem';
+      
+      if(this.getAttribute("tooltip-color") !== null) {
+        this.tooltip.style.color = this.getAttribute("tooltip-color");
+      }
+      if(this.getAttribute("tooltip-bg-color") !== null) {
+        this.tooltip.style.backgroundColor = this.getAttribute("tooltip-bg-color");
+      }
+    } 
   }
 
-  onBackgroundChnage() {
+  onBackgroundChange() {
     // Set Background Color
-    this.button.style.backgroundColor =
-      this.getAttribute("bg-color") !== null
-        ? this.getAttribute("bg-color")
-        : "rgb(0, 89, 172)";
+    if(this.getAttribute("bg-color") !== null) {
+      this.button.style.backgroundColor = this.getAttribute("bg-color");
+    }
   }
 
   onColorChange() {
     // Set Color
-    this.buttonText.style.color =
-      this.getAttribute("color") !== null
-        ? this.getAttribute("color")
-        : "#f0ffff";
+    if(this.getAttribute("color") !== null) {
+      this.buttonText.style.color = this.getAttribute("color");
+    }
   }
 
   onImgChange() {
@@ -167,12 +153,6 @@ class Button extends HTMLElement {
   onBorderRadiusChange() {
     if (this.getAttribute("border-radius") !== null) {
       this.button.style.borderRadius = this.getAttribute("border-radius");
-    }
-  }
-
-  onRoundedBorder() {
-    if (this.getAttribute("rounded") !== null) {
-      this.button.classList.add('rounded-border');
     }
   }
 }

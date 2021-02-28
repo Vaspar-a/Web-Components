@@ -92,6 +92,8 @@ class Input extends HTMLElement {
     this.toggleCalendarVisibility = this.toggleCalendarVisibility.bind(this);
     this.toggleTimeVisibility = this.toggleTimeVisibility.bind(this);
     this.onDateClick = this.onDateClick.bind(this);
+    this.onImgClick = this.onImgClick.bind(this);
+    this.onInputClick = this.onInputClick.bind(this);
   }
 
   onImgChange() {
@@ -124,27 +126,29 @@ class Input extends HTMLElement {
   }
 
   onInputBgColorChange() {
-    this.input.style.backgroundColor =
-      this.getAttribute("input-bg-color") || "rgba(255, 255, 255, 0)";
+    if(this.getAttribute("input-bg-color") !== null) {
+      this.input.style.backgroundColor = this.getAttribute("input-bg-color");
+    }
   }
 
   onInputColorChange() {
-    this.input.style.color = this.getAttribute("input-color") || "black";
+    if(this.getAttribute("input-color") !== null) {
+      this.input.style.color = this.getAttribute("input-color");
+    }
   }
 
   onTooltipChange() {
     const tooltipText = this.getAttribute("tooltip");
     if (tooltipText !== null && tooltipText.trim() !== "") {
-      this.tooltip.textContent = this.getAttribute("tooltip");
-      this.tooltip.style.width = "max-content";
-      this.tooltip.style.height = "max-content";
-      this.tooltip.style.color = this.getAttribute("tooltip-color") || "white";
-      this.tooltip.style.backgroundColor =
-        this.getAttribute("tooltip-bg-color") || "black";
-    } else {
-      this.tooltip.style.width = "0px";
-      this.tooltip.style.height = "0px";
-      this.tooltip.style.padding = "0px";
+      this.tooltip.textContent = tooltipText;
+      this.tooltip.style.padding = '0.25rem';
+
+      if(this.getAttribute("tooltip-color") !== null) {
+        this.tooltip.style.color = this.getAttribute("tooltip-color");
+      }
+      if(this.getAttribute("tooltip-bg-color") !== null) {
+        this.tooltip.style.backgroundColor = this.getAttribute("tooltip-bg-color");
+      }
     }
   }
 
@@ -160,38 +164,25 @@ class Input extends HTMLElement {
     if (detailText !== null && detailText.trim() !== "") {
       this.detail.textContent = detailText;
       this.detail.style.display = "inline-block";
-      this.detail.style.width = "max-content";
-      this.detail.style.height = "max-content";
-      this.detail.style.paddingTop = "0.125rem";
-      this.detail.style.paddingLeft = "0.16rem";
-      this.detail.style.color = this.getAttribute("detail-color") || "#858587";
-      this.detail.style.backgroundColor =
-        this.getAttribute("detail-bg-color") || "white";
-    } else {
-      this.detail.style.display = "none";
-      this.detail.style.width = "0px";
-      this.detail.style.height = "0px";
-      this.detail.style.paddingTop = "0px";
-      this.detail.style.paddingLeft = "0px";
-    }
+      if(this.getAttribute("detail-color") !== null) {
+        this.detail.style.color = this.getAttribute("detail-color");
+      }
+      if(this.getAttribute("detail-bg-color") !== null) {
+        this.detail.style.backgroundColor = this.getAttribute("detail-bg-color");
+      }
+    } 
   }
 
   onErrorChange() {
     const errorText = this.getAttribute("error");
     if (errorText !== null && errorText.trim() !== "") {
       this.error.textContent = errorText;
-      this.error.style.width = "max-content";
-      this.error.style.height = "max-content";
-      this.error.style.paddingTop = "0.125rem";
-      this.error.style.paddingLeft = "0.16rem";
-      this.error.style.color = this.getAttribute("error-color") || "red";
-      this.error.style.backgroundColor =
-        this.getAttribute("error-bg-color") || "white";
-    } else {
-      this.error.style.width = "0px";
-      this.error.style.height = "0px";
-      this.error.style.paddingTop = "0px";
-      this.error.style.paddingLeft = "0px";
+      if(this.getAttribute("error-color") !== null) {
+        this.error.style.color = this.getAttribute("error-color");
+      }
+      if(this.getAttribute("error-bg-color") !== null) {
+        this.error.style.backgroundColor = this.getAttribute("error-bg-color");
+      }
     }
   }
 
@@ -316,25 +307,26 @@ class Input extends HTMLElement {
       } else {
         this.input.style.paddingRight = "12%";
       }
-    } else {
-      this.input.style.paddingRight = "0%";
     }
   }
 
   onBorderColorChange() {
-    this.input.style.borderColor =
-      this.getAttribute("border-color") || "rgba(0, 0, 0, 0.7)";
+    if(this.getAttribute("border-color") !== null) {
+      this.input.style.borderColor = this.getAttribute("border-color");
+    }
   }
 
   onBorderWidthChange() {
-    this.input.style.borderWidth = this.getAttribute("border-width") || "2px";
+    if(this.getAttribute("border-width") !== null) {
+      this.input.style.borderWidth = this.getAttribute("border-width");
+    }
   }
 
   onBorderRadiusChange() {
-    this.container.style.borderRadius =
-      this.getAttribute("border-radius") || "0.5rem";
-    this.input.style.borderRadius =
-      this.getAttribute("border-radius") || "0.5rem";
+    if(this.getAttribute("border-radius") !== null) {
+      this.container.style.borderRadius = this.getAttribute("border-radius");
+      this.input.style.borderRadius = this.getAttribute("border-radius");
+    }
   }
 
   onDateClick() {
