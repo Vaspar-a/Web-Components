@@ -3,5 +3,5 @@
 /Calendar-master
 
 # Files
-index.html
+*.html
 webpack.config.js

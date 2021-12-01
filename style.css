@@ -1,0 +1,7 @@
+.header, .nav-links {
+    background-color: #D71E12;
+}
+
+.active {
+    border-bottom-color: #FFF2C5;
+}
